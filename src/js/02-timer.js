@@ -18,6 +18,7 @@ const options = {
 		
 		if (selectedDates[0] <= new Date()) {
 			Report.warning('Choose a date in the future', 'Your date is gone by now', 'I understood');
+            startButton.disabled = true;
 		} else {
 			
 			startButton.disabled = false;
