@@ -59,6 +59,8 @@ function convertMs(ms) {
 //Прослуховувач кнопки
 startButton.addEventListener('click', onClick);
 
+let timerId = null;
+
 //Функція яка здійснює зворотний відлік до певної дати
 function onClick() {
 	const selectedDate = flatpickrValue.selectedDates[0];
@@ -66,7 +68,7 @@ function onClick() {
 	function countdown() {
 		const currentDate = new Date();
 		const difference = selectedDate - currentDate;
-		
+    
 		if (difference <= 0) {
 		clearInterval(timerId);
 		markupTimer(0, 0, 0, 0);
@@ -77,5 +79,5 @@ function onClick() {
 	}
 	
 	countdown();
-	const timerId = setInterval(countdown, 1000);
+	timerId = setInterval(countdown, 1000);
 }
